@@ -1,17 +1,91 @@
-# Aplicación de Supermercado
 
-Este repositorio contiene el código de una aplicación de supermercado, dividida en tres carpetas principales: `SQL`, `frontend` y `backend`.
+# 🛒 Supermarket App
+
+Este proyecto es una aplicación web de supermercado con arquitectura dividida en backend, frontend y base de datos. 
+
+## 📁 Estructura del Proyecto
+
+- `/SQL` → Contiene el script `main.sql` para crear la base de datos en MySQL.
+- `/backend` → Servidor Node.js con autenticación y API REST.
+- `/frontend` → Interfaz de usuario hecha con React.
+
+Repositorio: [https://github.com/Jamie026/supermarket](https://github.com/Jamie026/supermarket)
 
 ---
 
-## Para Empezar
-
-Sigue estos pasos para configurar y ejecutar la aplicación en tu máquina local.
+## 🚀 Pasos para Ejecutar el Proyecto
 
 ### 1. Clonar el Repositorio
 
-Primero, clona el repositorio en tu máquina local usando el siguiente comando:
+```bash
+git clone https://github.com/Jamie026/supermarket
+cd supermarket
+```
+
+---
+
+### 2. Configurar la Base de Datos
+
+Ejecuta el archivo `main.sql` que se encuentra en la carpeta `SQL` en tu servidor MySQL.  
+Puedes usar herramientas como **MySQL Workbench**, **DBeaver**, o la **línea de comandos**.
+
+---
+
+### 3. Crear el Archivo `.env`
+
+Dentro de la carpeta `/backend`, crea un archivo llamado `.env` con el siguiente contenido:
+
+```env
+DB_NAME=supermarket
+DB_USER=root
+DB_PASS=admin
+DB_HOST=localhost
+DB_DIALECT=mysql
+
+JWT_SECRET=privatekey
+
+EMAIL_USER=jaime.nunez@utec.edu.pe
+EMAIL_PASS=lxil fwxu eqnx yday
+```
+
+> ⚠️ El `EMAIL_USER` y `EMAIL_PASS` deben corresponder a una cuenta de correo configurada con **autenticación en dos pasos**.  
+> Asegúrate de generar una **contraseña de aplicación** desde tu proveedor de correo (como Gmail) y usarla como `EMAIL_PASS`.
+
+---
+
+### 4. Iniciar el Backend
+
+Abre una terminal, navega a la carpeta `backend` y ejecuta:
 
 ```bash
-git clone [https://github.com/Jamie026/supermarket.git](https://github.com/Jamie026/supermarket.git)
-cd supermarket
+cd backend
+npm install
+npm run dev
+```
+
+---
+
+### 5. Iniciar el Frontend
+
+En otra terminal, navega a la carpeta `frontend` y ejecuta:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## ✅ Requisitos
+
+- Node.js (v18+ recomendado)
+- MySQL Server
+- Cuenta de correo con autenticación en dos pasos
+- Contraseña de aplicación configurada para el envío de correos
+
+---
+
+## 📬 Contacto
+
+Desarrollado por [Jamie Nuñez](mailto:jaime.nunez@utec.edu.pe)
