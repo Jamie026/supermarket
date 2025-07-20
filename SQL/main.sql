@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS products (
     name VARCHAR(100) NOT NULL,
     stock INT DEFAULT 0,
     price DECIMAL(10,2) NOT NULL,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS reset_password (
