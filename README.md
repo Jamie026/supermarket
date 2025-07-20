@@ -26,8 +26,8 @@ cd supermarket
 
 ### 2. Configurar la Base de Datos
 
-Ejecuta el archivo `main.sql` que se encuentra en la carpeta `SQL` en tu servidor MySQL.  
-Puedes usar herramientas como **MySQL Workbench**, **DBeaver**, o la **línea de comandos**.
+Ejecuta el archivo `main.sql` que se encuentra en la carpeta `SQL` en un servidor MySQL.  
+Se puede usar herramientas como **MySQL Workbench**, **DBeaver**, o la **línea de comandos**.
 
 ---
 
@@ -36,16 +36,16 @@ Puedes usar herramientas como **MySQL Workbench**, **DBeaver**, o la **línea de
 Dentro de la carpeta `/backend`, crea un archivo llamado `.env` con el siguiente contenido:
 
 ```env
-DB_NAME=supermarket
-DB_USER=root
-DB_PASS=admin
-DB_HOST=localhost
+DB_NAME=your_database_name
+DB_USER=your_database_user
+DB_PASS=your_database_password
+DB_HOST=your_database_host
 DB_DIALECT=mysql
 
-JWT_SECRET=privatekey
+JWT_SECRET=your_jwt_secret_key
 
-EMAIL_USER=jaime.nunez@utec.edu.pe
-EMAIL_PASS=lxil fwxu eqnx yday
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_email_app_password
 ```
 
 > ⚠️ El `EMAIL_USER` y `EMAIL_PASS` deben corresponder a una cuenta de correo configurada con **autenticación en dos pasos**.  

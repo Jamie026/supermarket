@@ -2,25 +2,29 @@ import { DataTypes, Model, Optional } from "sequelize";
 import { sequelize } from "../db/sequelize";
 import { User } from "./User";
 
+// Atributos requeridos en el modelo Product
 interface ProductAttributes {
     id: number;
     name: string;
     stock: number;
     price: number;
-    user_id?: number;
+    user_id: number; 
 }
 
+// Atributos opcionales al crear un producto (id lo genera automáticamente)
 type ProductCreationAttributes = Optional<ProductAttributes, "id">;
 
+// Clase Product
 export class Product extends Model<ProductAttributes, ProductCreationAttributes>
     implements ProductAttributes {
     public id!: number;
     public name!: string;
     public stock!: number;
     public price!: number;
-    public user_id?: number;
+    public user_id!: number;
 }
 
+// Inicialización del modelo
 Product.init(
     {
         id: {
@@ -42,20 +46,21 @@ Product.init(
         },
         user_id: {
             type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: true,
+            allowNull: false, 
             references: {
                 model: "users",
                 key: "id"
             },
-            onDelete: "SET NULL"
-        },
+            onDelete: "CASCADE" // Elimina productos si el usuario se elimina
+        }
     },
     {
-        tableName: "products",
+        tableName: "products", // Nombre de la tabla en la base de datos
         sequelize,
-        timestamps: false
+        timestamps: false   // No usar createdAt ni updatedAt
     }
 );
 
+// Relaciones
 User.hasMany(Product, { foreignKey: "user_id" });
 Product.belongsTo(User, { foreignKey: "user_id" });

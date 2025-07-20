@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import { sequelize } from "../db/sequelize";
 
+// Atributos requeridos en el modelo User
 interface UserAttributes {
     id: number;
     name: string;
@@ -11,8 +12,10 @@ interface UserAttributes {
     birthday?: Date;
 }
 
+// Atributos opcionales al crear un nuevo usuario (id lo genera automáticamente)
 type UserCreationAttributes = Optional<UserAttributes, "id">;
 
+// Clase User
 export class User extends Model<UserAttributes, UserCreationAttributes>
     implements UserAttributes {
     public id!: number;
@@ -24,6 +27,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes>
     public birthday?: Date;
 }
 
+// Inicialización del modelo
 User.init(
     {
         id: {
@@ -58,8 +62,8 @@ User.init(
         }
     },
     {
-        tableName: "users",
-        sequelize,
-        timestamps: false
+        tableName: "users", // Nombre de la tabla en la base de datos
+        sequelize,        
+        timestamps: false   // No usar createdAt ni updatedAt
     }
 );

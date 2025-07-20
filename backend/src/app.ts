@@ -9,15 +9,20 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 
+// Configurar CORS para permitir peticiones desde el frontend
 app.use(cors({
-    origin: "http://localhost:5173", 
+    origin: "http://localhost:5173", // URL del frontend 
     credentials: true
 }));
 
+// Habilitar lectura de JSON en las solicitudes
 app.use(express.json());
-app.use("/api/users", userRoutes);
-app.use("/api/products", productRoutes);
 
+// Rutas principales de la API
+app.use("/api/users", userRoutes);     // Rutas de usuarios
+app.use("/api/products", productRoutes); // Rutas de productos
+
+// Sincronizar base de datos y arrancar servidor
 sequelize.sync().then(() => {
     console.log("Base de datos sincronizada");
     app.listen(PORT, () => console.log("Servidor en http://localhost:" + PORT));
