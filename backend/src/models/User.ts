@@ -41,8 +41,7 @@ User.init(
         },
         username: {
             type: new DataTypes.STRING(100),
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         password: {
             type: new DataTypes.STRING(255),
@@ -55,7 +54,7 @@ User.init(
         },
         birthday: {
             type: DataTypes.DATEONLY,
-            allowNull: true
+            allowNull: false
         }
     },
     {

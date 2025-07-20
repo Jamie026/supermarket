@@ -16,6 +16,7 @@ export function authMiddleware(req: AuthRequest, res: Response, next: NextFuncti
         req.user = decoded;
         next();
     } catch (err) {
+        console.log("Invalid token");
         return res.status(401).json({ message: "Invalid token" });
     }
 }

@@ -21,37 +21,37 @@ products.post("/", authMiddleware, async (req: AuthRequest, res: Response) => {
         });
         res.status(201).json(item);
     } catch (err) {
-        res.status(500).json({ message: "Error creating product", error: err });
+        res.status(500).json({ message: "Error creando producto", error: err });
     }
 });
 
 products.get("/:id", authMiddleware, async (req: Request, res: Response) => {
     const item = await Product.findByPk(req.params.id);
-    if (!item) return res.status(404).json({ message: "Product not found" });
+    if (!item) return res.status(404).json({ message: "Producto no encontrado" });
     res.json(item);
 });
 
 products.put("/:id", authMiddleware, async (req: AuthRequest, res: Response) => {
     const item = await Product.findByPk(req.params.id);
-    if (!item) return res.status(404).json({ message: "Product not found" });
+    if (!item) return res.status(404).json({ message: "Producto no encontrado" });
 
     try {
         await item.update(req.body);
         res.json(item);
     } catch (err) {
-        res.status(500).json({ message: "Error updating product", error: err });
+        res.status(500).json({ message: "Error actualizando producto", error: err });
     }
 });
 
 products.delete("/:id", authMiddleware, async (req: Request, res: Response) => {
     const item = await Product.findByPk(req.params.id);
-    if (!item) return res.status(404).json({ message: "Product not found" });
+    if (!item) return res.status(404).json({ message: "Producto no encontrado" });
 
     try {
         await item.destroy();
         res.json({ message: "Product deleted" });
     } catch (err) {
-        res.status(500).json({ message: "Error deleting product", error: err });
+        res.status(500).json({ message: "Error eliminando producto", error: err });
     }
 });
 
