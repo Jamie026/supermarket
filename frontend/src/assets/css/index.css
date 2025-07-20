@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(120deg, #f6d365, #fda085);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home-container {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.form-wrapper {
+    background: white;
+    border: 4px solid #4caf50; 
+    border-radius: 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    animation: floatUp 0.8s ease-out;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

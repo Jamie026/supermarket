@@ -6,6 +6,8 @@ import { generateToken } from "../utils/jwt";
 const users = Router();
 
 users.post("/register", async (req: Request, res: Response) => {
+    console.log(req.body);
+    
     const { name, lastname, username, password, email, birthday } = req.body;
 
     try {
@@ -26,6 +28,7 @@ users.post("/register", async (req: Request, res: Response) => {
 
         res.status(201).json(userResponse);
     } catch (err) {
+        console.log(err);
         res.status(500).json({ message: "Error creating user", error: err });
     }
 });
@@ -50,6 +53,7 @@ users.post("/login", async (req: Request, res: Response) => {
             user: userData
         });
     } catch (err) {
+        console.log(err);
         res.status(500).json({ message: "Login error", error: err });
     }
 });

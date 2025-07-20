@@ -41,7 +41,7 @@ ResetPassword.init(
     {
         tableName: "reset_password",
         sequelize,
-        timestamps: true
+        timestamps: false
     }
 );
 
